@@ -6,11 +6,14 @@ Configuration:
   - CPU PLatform: Intel Cascade Lake 
   - Machine Type: n2-standard-8
 
-Assignment 2 modifies the behavior of the cpuid instruction for the following cases:
-  - CPUID lead node(%eax=0x4ffffffe)
-    - Return the high 32 bits of the total time spent processing all exits in %ebx and %ecx. Return values are measured in processor cycles, across all           vCPUs.
-  - CPUID leaf node(%eax=0x4fffffff)
-    - Return the total number of exits for all types in %eax.
+Assignment 3 modifies the behavior of the cpuid instruction for the following cases:
+  - CPUID leaf node(%eax=0x4ffffffd)
+    - Return the total number of exits for an exit number(passed as parameter) in %ecx, return       the value in %eax.
+  - CPUID lead node(%eax=0x4ffffffc)
+    - Return the total time spent processing the exit number(passed as parameter) in %ecx. The       value is measured in cycles.
+    - Return the high 32 bits of the total time spent processing for an exit number in %ebx.
+    - Return the low 32 bits of the total time spent processing for an exit number in %ecx.
+
   
 <h2> Question 1: Team Details: </h2> 
    - `Done by Myself`
